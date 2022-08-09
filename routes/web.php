@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/travellers', [App\Http\Controllers\TravellerController::class, 'index'])->name('travellers');
+Route::get('/trip_details', [App\Http\Controllers\Trip_DetailController::class, 'index'])->name('trip_details');
+Route::get('/trips', [App\Http\Controllers\TripController::class, 'index'])->name('trips');
