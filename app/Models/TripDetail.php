@@ -15,7 +15,7 @@ class TripDetail extends Model
     //可変項目
     protected $fillable =
     [
-        'timestart','timeend','content','img','link','map'
+       'user_id','trip_id','timestart','timeend','content','img','link','map'
     ];
 
 }

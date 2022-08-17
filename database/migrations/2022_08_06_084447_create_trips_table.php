@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
             $table->int('user_id');
-            $table->int('trip_id');
             $table->date('date')->comment('旅行日');
             $table->string('title',100)->comment('タイトル');
             $table->string('prefecture',50)->comment('都道府県名');

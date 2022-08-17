@@ -15,6 +15,6 @@ class Trip extends Model
     //可変項目
     protected $fillable =
     [
-        'date','title','prefecture','cities','category','img'
+        'user_id','date','title','prefecture','cities','category','img'
     ];
 }

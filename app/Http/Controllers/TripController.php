@@ -10,21 +10,6 @@ use App\Http\Requests\TripRequest;
 class TripController extends Controller
 {
     /**
-        * タスク一覧
-        *
-        * @param Request $request
-        * @return Response
-        */
-
-        // public function index(Request $request)
-        // {
-        //     $trips = Trip::orderBy('created_at', 'asc')->get();
-        //     return view('trips.index', [
-        //         'trips' => $trips,
-        //     ]);
-        // }
-
-    /**
      * 旅先一覧の表示
      * @return view
      */
@@ -61,5 +46,4 @@ class TripController extends Controller
         \Session::flash('err_msg','旅先を登録しました');
             return redirect(route('trips'));
     }
-
 }

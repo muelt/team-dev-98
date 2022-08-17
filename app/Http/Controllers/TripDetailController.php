@@ -9,21 +9,7 @@ use App\Models\Trip;
 
 class TripDetailController extends Controller
 {
-    // /**
-    //     * タスク一覧
-    //     *
-    //     * @param Request $request
-    //     * @return Response
-    //     */
-    //     public function index(Request $request)
-    //     {
-    //         $tripdetails = TripDetail::orderBy('created_at', 'asc')->get();
-    //         return view('tripdetails.index', [
-    //             'tripdetails' => $tripdetails,
-    //         ]);
-    //     }
-
-    /**
+      /**
      * 旅先一覧の表示
      * @param int $id
      * @return view
