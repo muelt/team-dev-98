@@ -14,13 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('trips', function (Blueprint $table) {
-            $table->date('date')->comment('旅行日')->nullable();
-            $table->string('title',100)->comment('タイトル')->nullable();
-            $table->string('prefecture',50)->comment('都道府県名')->nullable();
+            $table->id();
+            $table->int('user_id');
+            $table->date('date')->comment('旅行日');
+            $table->string('title',100)->comment('タイトル');
+            $table->string('prefecture',50)->comment('都道府県名');
             $table->string('cities',50)->comment('市町村')->nullable();
-            $table->string('img')->comment('トップ画像');
+            $table->string('category',50)->comment('カテゴリー');
+            $table->string('img')->comment('トップ画像')->nullable();
             $table->timestamps();
-
         });
     }
 
