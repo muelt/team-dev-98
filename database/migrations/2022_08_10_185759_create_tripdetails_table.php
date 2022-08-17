@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('tripdetails', function (Blueprint $table) {
             $table->id();
+            $table->int('user_id');
+            $table->int('trip_id');
+            $table->int('trip_detail_id');
             $table->time('timestart')->comment('開始時間');
             $table->time('timeend')->comment('終了時間');
             $table->string('content',100)->comment('目的地・内容');
