@@ -5,16 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Trip extends Model
+class TripDetail extends Model
 {
     use HasFactory;
 
     //テーブル名
-    protected $table = 'trips';
+    protected $table = 'tripdetails';
 
     //可変項目
     protected $fillable =
     [
-        'date','title','prefecture','cities','category','img'
+        'timestart','timeend','content','img','link','map'
     ];
+
 }

@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/travellers', [App\Http\Controllers\TravellerController::class, 'index'])->name('travellers');
-Route::get('/trip_details', [App\Http\Controllers\Trip_DetailController::class, 'index'])->name('trip_details');
+Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users');
+Route::get('/tripdetails', [App\Http\Controllers\TripDetailController::class, 'index'])->name('tripdetails');
+Route::get('/trips/form', [App\Http\Controllers\TripController::class, 'form'])->name('form');
+Route::post('/trips/register', [App\Http\Controllers\TripController::class, 'register'])->name('register');
+
 Route::get('/trips', [App\Http\Controllers\TripController::class, 'index'])->name('trips');
+
+//旅のしおり詳細を表示
+Route::get('/trip/{id}', [App\Http\Controllers\TripDetailController::class, 'index'])->name('tripdetails');
