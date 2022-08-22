@@ -23,7 +23,8 @@
     <div class="container">
     <div class="order-md-1">
       <h4 class="mb-3">あなたの旅の予定を入力してください</h4>
-      <form class="needs-validation" novalidate method="POST" action="{{route('register')}}" onSubmit="return chechSubmit()">
+      <!-- <form class="needs-validation" novalidate method="POST" action= enctype="multipart/form-data"> -->
+      <form method="POST" action="{{route('register')}}" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
           <input type="text" class="form-control" id="date" name="date" placeholder="旅行日">
@@ -43,6 +44,8 @@
               <option>東京</option>
               <option>大阪</option>
               <option>京都</option>
+              <option>長野</option>
+              <option>鹿児島</option>
             </select>
             <div class="invalid-feedback">
               Valid first name is required.
@@ -59,7 +62,7 @@
           <input type="text" class="form-control" id="category" name="category" placeholder="カテゴリー">
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control" id="image" name="image" placeholder="画像添付">
+          <input type="file" class="form-control" id="img" name="img" placeholder="画像添付">
         </div>
         <hr class="mb-4">
         <button class="btn btn-primary btn-lg btn-block" type="submit">保存する</button>

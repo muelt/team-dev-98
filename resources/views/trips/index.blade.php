@@ -5,6 +5,7 @@
     <title>旅のしおり一覧</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="album.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   </head>
   <body >
     <a id="skippy" class="sr-only sr-only-focusable" href="#content">
@@ -13,7 +14,7 @@
   </div>
 </a>
 
-    <header>
+  <header>
   <div class="collapse bg-dark" id="navbarHeader">
     <div class="container">
       <div class="row">
@@ -49,148 +50,56 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">旅のしおり一覧</h1>
+      <h1 class="jumbotron-heading"><a href="/trips">旅のしおり一覧</a></h1>
       <p class="lead text-muted">これは＜あなた＞の旅のしおり一覧ページです。</p>
       <p>
         <a href="/trips/form" class="btn btn-primary my-2">旅のしおりを作成する</a>
         <a href="#" class="btn btn-secondary my-2">ログアウト</a>
       </p>
     </div>
+    <div class="input-group">
+      <form action="{{route('search')}}" method="POST" class="search-form">
+        @csrf
+        <div class="form-outline">
+          <input type="search" id="form1" class="form-control" placeholder="キーワードを入力" name="search"/>
+          <button type="submit" class="btn btn-primary btn-search">検索</button>
+        </div>
+      </form>
+    </div>
+    @isset($search_result)
+      <div class="search_result">
+        <h5 class="card-title">{{$search_result}}</h5>
+      </div>
+      @endisset
   </section>
 
   <div class="album py-5 bg-light">
     <div class="container">
-
       <div class="row">
         @foreach($trips as $trip)
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" data-src="https://www.abenoharukas-300.jp/images2/mv01.jpg" alt="Card image cap">
+            <img class="card-img-top" src="{{ asset('storage/img') }}/{{$trip->img}}" alt="Card image cap">
             <div class="card-body">
-              <p class="card-text">{{ $trip->title }}</p>
-              <p class="card-text">{{$trip->prefecture}}/{{$trip->cities}}</p>
-              <p class="card-text">{{$trip->category}}</p>
+              <p class="card-text-title">{{ $trip->title }}</p>
+              <p class="card-text-prefecture">{{$trip->prefecture}}/{{$trip->cities}}</p>
+              <p class="card-text-category">{{$trip->category}}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <a href='/trip/{{$trip->id}}'><button type="button" class="btn btn-sm btn-outline-secondary">詳細をみる</button></a>
                   <button type="button" class="btn btn-sm btn-outline-secondary">修正する</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary">削除する</button>
                 </div>
-                <small class="text-muted">{{$trip->date}}</small>
+                <div class="post-date">
+                  <small class="text-muted ">{{$trip->date}}</small>
+                </div>
               </div>
             </div>
           </div>
         </div>
         @endforeach
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text">タイトル</p>
-              <p class="card-text">都道府県・市町村</p>
-              <p class="card-text">カテゴリー</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">詳細をみる</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">修正する</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">削除する</button>
-                </div>
-                <small class="text-muted">日付</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text">タイトル</p>
-              <p class="card-text">都道府県・市町村</p>
-              <p class="card-text">カテゴリー</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">詳細をみる</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">修正する</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">削除する</button>
-                </div>
-                <small class="text-muted">日付</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text">タイトル</p>
-              <p class="card-text">都道府県・市町村</p>
-              <p class="card-text">カテゴリー</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">詳細をみる</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">修正する</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">削除する</button>
-                </div>
-                <small class="text-muted">日付</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text">タイトル</p>
-              <p class="card-text">都道府県・市町村</p>
-              <p class="card-text">カテゴリー</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">詳細をみる</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">修正する</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">削除する</button>
-                </div>
-                <small class="text-muted">日付</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text">タイトル</p>
-              <p class="card-text">都道府県・市町村</p>
-              <p class="card-text">カテゴリー</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">詳細をみる</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">修正する</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">削除する</button>
-                </div>
-                <small class="text-muted">日付</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text">タイトル</p>
-              <p class="card-text">都道府県・市町村</p>
-              <p class="card-text">カテゴリー</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">詳細をみる</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">修正する</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">削除する</button>
-                </div>
-                <small class="text-muted">日付</small>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
+
     </div>
   </div>
 
@@ -201,8 +110,7 @@
     <p class="float-right">
       <a href="#">Back to top</a>
     </p>
-    <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+    <p>TEAM-DEV-98</p>
   </div>
 </footer>
 <script src="../../assets/js/vendor/holder.min.js"></script>
