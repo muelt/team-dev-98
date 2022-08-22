@@ -29,6 +29,7 @@ class TripRequest extends FormRequest
             'prefecture' => 'required | max:50',
             'cities' => 'required | max:50',
             'category' => 'required | max:50'
+
             //
         ];
     }
