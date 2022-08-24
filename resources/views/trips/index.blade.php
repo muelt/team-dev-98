@@ -99,7 +99,7 @@
         </div>
         @endforeach
       </div>
-
+      {!! $trips->links() !!}
     </div>
   </div>
 

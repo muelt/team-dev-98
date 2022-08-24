@@ -17,24 +17,25 @@ class TripController extends Controller
     public function index()
     {   
         // $trips = Trip::all()->sortByDesc('created_at');
-        // return view('trips.index',
-        // ['trips' => $trips]);
+        // return view('trips.index',['trips'=>$trips]);
 
-        $trips = Trip::all()->sortByDesc('created_at');
-        // $trips = Trip::paginate(3);
-        return view('trips.index',['trips'=>$trips]);
-        // return view('users',compact('trips'));
+        $trips = Trip::orderByDesc('created_at')->paginate(6);
+
+
+        return view('trips.index',compact('trips'));
+
+
     }
 
     //キーワード検索を表示する
     public function search(Request $request)
     {
-        $trips = Trip::where('title','like',"%{$request->search}%")
+        $trips = Trip::
+                 where('title','like',"%{$request->search}%")
                  ->orWhere('prefecture','like',"%{$request->search}%")
                  ->orWhere('cities','like',"%{$request->search}%")
                  ->orWhere('category','like',"%{$request->search}%")
-                 ->paginate(100)->sortByDesc('created_at');
-
+                 ->orderByDesc('created_at')->paginate(6);
         $search_result = $request->search.'の検索結果'.count($trips).'件';
         
         return view('trips.index',[
@@ -49,11 +50,15 @@ class TripController extends Controller
         return view('trips.form');
     }
 
+     //都道府県の選択
+     public function sample() {
+        $prefs = config('pref');
+        return view('sample')->with(['prefs' => $prefs]);
+      }
+
     // しおりを登録する
     public function register(TripRequest $request)
     {
-        // dd($request);
-
         //要領重たいものは保存できないので注意　.env確認
         // $request->file('img')->store('public/storage/img/');
 
@@ -62,7 +67,7 @@ class TripController extends Controller
             $target_path = public_path('storage/img');
             $file->move($target_path, $fileName);
         } else {
-            $fileName = “”;
+            $fileName = null;
         }
   
         // しおりのデータを受け取る

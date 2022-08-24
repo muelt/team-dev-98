@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja" >
   <head>
-    <title>Checkout example for Bootstrap · Bootstrap</title>
+    <title>旅先登録</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="form-validation.css" rel="stylesheet">
   </head>
@@ -27,7 +27,7 @@
       <form method="POST" action="{{route('register')}}" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-          <input type="text" class="form-control" id="date" name="date" placeholder="旅行日">
+          <input type="date" class="form-control" id="date" name="date" placeholder="旅行日">
           @if($errors->has('date'))
             <div class="text-danger">
                 {{$errors->first('date')}}
@@ -40,12 +40,9 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <select class="custom-select d-block w-100" id="prefecture" name="prefecture" placeholder="都道府県" required>
-              <option value="都道府県">都道府県</option>
-              <option>東京</option>
-              <option>大阪</option>
-              <option>京都</option>
-              <option>長野</option>
-              <option>鹿児島</option>
+              @foreach(config('pref') as $pref)
+                <option >{{$pref}}</option>
+              @endforeach
             </select>
             <div class="invalid-feedback">
               Valid first name is required.
