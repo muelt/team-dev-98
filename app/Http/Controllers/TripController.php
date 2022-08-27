@@ -95,4 +95,90 @@ class TripController extends Controller
         \Session::flash('err_msg','旅先を登録しました');
             return redirect(route('trips'));
     }
+
+    //しおりを編集する機能(編集画面表示)
+    public function edit($id)
+    {
+        $trip = Trip::find($id);
+        
+        if(is_null($trip)){
+            \Session::flash('err_msg','データがありません');
+            return redirect(route('trips'));
+        }
+        return view('trips.edit',['trip'=>$trip]);
+    }
+    //しおりを編集する機能(編集内容登録)
+    public function update(TripRequest $request)
+    {
+        $inputs = $request->all();
+        \DB::beginTransaction();
+
+        if ($file = $request->img) {
+            $fileName = time() . $file->getClientOriginalName();
+            $target_path = public_path('storage/img');
+            $file->move($target_path, $fileName);
+        } else {
+            $fileName = null;
+        }
+        //画像の添付があった場合
+        if(is_null($fileName)){
+            try{
+                $trip = Trip::find($inputs['id']);
+                $trip->fill([
+                    'date' => $inputs['date'],
+                    'title' => $inputs['title'],
+                    'prefecture' => $inputs['prefecture'],
+                    'cities' => $inputs['cities'],
+                    'category' => $inputs['category'],
+                ]);
+                $trip->save();
+    
+                \DB::commit();
+            }catch(\Throwable $e){
+                \DB::rollback();
+                abort(500);
+            }
+        }
+        // 画像の添付がなかった場合
+        else{
+            try{
+                $trip = Trip::find($inputs['id']);
+                $trip->fill([
+                    'date' => $inputs['date'],
+                    'title' => $inputs['title'],
+                    'prefecture' => $inputs['prefecture'],
+                    'cities' => $inputs['cities'],
+                    'category' => $inputs['category'],
+                    'img' => $fileName
+                ]);
+                $trip->save();
+    
+                \DB::commit();
+            }catch(\Throwable $e){
+                \DB::rollback();
+                abort(500);
+            }
+        }
+        
+        \Session::flash('err_msg','ブログを更新しました');
+        return redirect(route('trips'));
+    }
+
+
+
+
+    //しおりを削除する機能
+    public function delete($id)
+    {   
+        if(empty($id)){
+            \Session::flash('err_msg','データがありません');
+            return redirect(route('trips'));
+        }
+        try{
+        $trip = Trip::destroy($id);
+        }catch(\Throwable $e){
+            abort(500);
+        }
+        return redirect(route('trips'));
+    }
 }

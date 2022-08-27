@@ -87,8 +87,11 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <a href='/trip/{{$trip->id}}'><button type="button" class="btn btn-sm btn-outline-secondary">詳細をみる</button></a>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">修正する</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">削除する</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='/trip/edit/{{$trip->id}}'">修正する</button>
+                  <form action="{{route('delete',$trip->id)}}" method="POST" >
+                  @csrf
+                    <button type="submit" class="btn btn-sm btn-outline-secondary" id="delete-trip-{{ $trip->id }}">削除する</button>
+                  </form>
                 </div>
                 <div class="post-date">
                   <small class="text-muted ">{{$trip->date}}</small>
