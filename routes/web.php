@@ -18,9 +18,9 @@ Route::get('/', function () {
 });
 
 
-// Auth::routes();
+Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users');
 Route::get('/tripdetails', [App\Http\Controllers\TripDetailController::class, 'index'])->name('tripdetails');
@@ -32,4 +32,6 @@ Route::get('/trips', [App\Http\Controllers\TripController::class, 'index'])->nam
 
 //旅のしおり詳細を表示
 Route::get('/trip/{id}', [App\Http\Controllers\TripDetailController::class, 'index'])->name('tripdetails');
+
+
 
