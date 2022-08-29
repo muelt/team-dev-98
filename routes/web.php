@@ -123,7 +123,7 @@ Route::get('/dashboard/trips/tripdetails/{id}', [TripDetailController::class, 'c
 Route::post('/dashboard/trips/tripdetails/', [TripDetailController::class, 'store'])->middleWare('auth');
 
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -140,9 +140,4 @@ Route::get('/trip/{id}', [App\Http\Controllers\TripDetailController::class, 'ind
 
 
 
-
-// Route::get('/trips/form', [App\Http\Controllers\TripController::class, 'form'])->name('form');
-// Route::post('/trips/register', [App\Http\Controllers\TripController::class, 'register'])->name('register');
-// Route::post('/trips/search', [App\Http\Controllers\TripController::class, 'search'])->name('search');
-// Route::get('/trip/{id}', [App\Http\Controllers\TripDetailController::class, 'index'])->name('tripdetails');
 
