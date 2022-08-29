@@ -13,9 +13,10 @@ class TripDetail extends Model
     protected $table = 'tripdetails';
 
     //可変項目
-    protected $fillable =
-    [
-       'user_id','trip_id','timestart','timeend','content','img','link','map'
-    ];
-
+    protected $guarded = ['id'];
+    
+    public function trip()
+    {
+        return $this->belongsTo(Trip::class);        
+    }
 }
