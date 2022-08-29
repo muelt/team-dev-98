@@ -20,10 +20,16 @@
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="/trips">
+            <a class="nav-link" href="/trips" >
               <span data-feather="home"></span>
-              旅のしおり一覧へもどる <span class="sr-only">(current)</span>
+              旅のしおり一覧へもどる <span class="sr-only"></span>
             </a>
+          </li>
+          <li>
+          <a class="nav-link" href="/tripdetails/create">
+              <span data-feather="file-text"></span>
+              旅のしおり追加 <span class="sr-only"></span>
+            </a>            
           </li>
         </ul>
       </div>
@@ -31,7 +37,8 @@
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
-      <h2>TITLE</h2>
+      <h2>しおり一覧</h2>
+      
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -46,7 +53,7 @@
           <tbody>
             @foreach($tripdetails as $tripdetail)
             <tr>
-              <td>{{$tripdetail->timestart}} ~ {{$tripdetail->timeend}}</td>
+              <td>{{$tripdetail->timestart}}　~　{{$tripdetail->timeend}}</td>
               <td>{{$tripdetail->content}}</td>
               <td><a href="#">MAP</a></td>
               <td><a href="#">LINK</a></td>

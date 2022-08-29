@@ -18,9 +18,10 @@ class TripDetailFactory extends Factory
     public function definition()
     {
         return [
-            'timestart' => $this->faker->year,
-            'timeend' => $this->faker->year,
-            'content' => $this->faker->sentence,
+            'trip_id' => mt_rand(1,30),
+            'timestart' => $this->faker->time(),
+            'timeend' => $this->faker->time(),
+            'content' => $this->faker->sentence(4,10),
             'img' => $this->faker->word,
             'link' => $this->faker->word,
             'map' => $this->faker->word,
