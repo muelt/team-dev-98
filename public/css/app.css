@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+
+
+.search-form{
+    width:300px;
+}
+.form-outline{
+    display:flex;
+}
+.input-group{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-search{
+    color:white;
+    width:90px;
+}
+
+.btn{
+    white-space: nowrap;
+}
+
+.text-muted{
+    white-space: nowrap;
+}
+
+
+
+/* 投稿画面一覧 */
+.col-md-4{
+    height:400px;
+}
+.card{
+    height:calc(100% - 20px);
+}
+.card-img-top{
+    height:50%;
+}
+.card-body{
+    padding:0.5rem 1.25rem;
+}
+.card-text-title{
+    height:20%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+.card-text-prefecture{
+    height:15%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom:0.4rem;
+}
+.card-text-category{
+    height:15%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom:0.4rem;
+}
+.post-date{
+    position: relative;
+}
+.date{
+    position: absolute;
+    bottom: -17px;
+    right: -5px;
+}
+
+
+/* paginate関連 */
+.w-5.h-5{
+    width:40px;
+}

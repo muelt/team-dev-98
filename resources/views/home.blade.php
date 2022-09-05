@@ -1,25 +1,23 @@
+@extends('layouts.main')
+
+@section('container')
+
 <!DOCTYPE html>
-<html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <title>旅のしおり_ホーム画面</title>
-    <meta name="description" content="テキストテキストテキストテキストテキストテキストテキストテキスト">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>旅のしおり_ホーム</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ 'assets/favicon.ico' }}" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ assset('css/styles.css') }}" rel="stylesheet" />
+    </head>
 
-<body>
-    <header id="header">
-      <h1>Home</h1>
-      <nav>
-        <ul>
-          <li><a href=" ">旅先一覧</a></li>
-        </ul>
-      </nav>
-    </header>
-<main>
-
-   
+    @endsection
