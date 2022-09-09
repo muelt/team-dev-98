@@ -24,9 +24,6 @@ use App\Http\Controllers\DashboardTripController;
 */
 
 Route::get('/', function () {
-    return view('home');
-});
-Route::get('/', function () {
     return view('home',[
         'title' => 'Home',
         'active' => 'home'
