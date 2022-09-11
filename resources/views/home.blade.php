@@ -1,19 +1,22 @@
 @extends('layouts.main')
 @section('container')
 
-<body>
-    <div class="container">
-        <div class="row justify-content-center">
-        <div style="text-align: center">
-    </div>
-    <body>
-    <div class="home.img">
-      <img src="public\img\home.jpg" alt="ホーム画像">
-    </div>
-            <h1>Body部分</h1>
-            <p>※検索欄（プルダウン）、旅先設定ボタン</p>
-        </div>
-    </div>
-</body>
-@endsection
-    
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>旅のしおり_ホーム</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ 'assets/favicon.ico' }}" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
+    </head>
+
+    @endsection
