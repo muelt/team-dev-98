@@ -23,19 +23,13 @@ use App\Http\Controllers\DashboardTripController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('home',[
         'title' => 'Home',
         'active' => 'home'
     ]);
-});
-Route::get('/trips', function () {
-    return view('trips',[
-        'title' => 'All Trips',
-        'active' => 'trips',
-    ]);
-});
-
+});*/
+Route::get('/', [TripController::class, 'index']);
 
 ///////////////////////  TRIP CONTROLLER  /////////////////////////////////
 
