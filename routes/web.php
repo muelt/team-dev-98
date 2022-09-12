@@ -42,7 +42,7 @@ Route::get('/categories', function(){
     return view('categories', [
         'title' => 'Trip Categories',
         'active' => 'categories',
-        'categor' => Category::all()
+        'category' => Category::all()
     ]);
 });
 

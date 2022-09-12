@@ -26,9 +26,9 @@
         </small>
     </p>
     <a href="/categories/{{ $trips[0]->category->name }}" class="text-decoration-none" >{{ $trips[0]->category->name }}</a>
-    <p class="card-text">{{ $trips[0]->body }}</p>
+    <p class="card-text">{{ ->body }}</p>
 
-    <a href="/trips/{{ $trips[0]->slug }}" class="text-decoration-none btn btn-primary">Read more</a>
+    <a href="/trips/{{ $trips[0]->slug }}" class="text-decoration-none btn btn-primary">続きを読む</a>
 
   </div>
 </div>
@@ -50,7 +50,7 @@
                 </p>
                 <p class="card-text-prefecture"><a href="/prefectures/{{ $trip->prefecture->name }}" class="text-decoration-none" >{{$trip->prefecture->name}}</a></p>
                 <p class="card-text">{{ $trip->body }}</p>
-                <a href="/trips/{{ $trip->slug }}" class="btn btn-primary">Read more</a>
+                <a href="/trips/{{ $trip->slug }}" class="btn btn-primary">続きを読む</a>
             </div>
         </div>
         </div>
