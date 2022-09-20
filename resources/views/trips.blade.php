@@ -26,7 +26,7 @@
         </small>
     </p>
     <a href="/categories/{{ $trips[0]->category->name }}" class="text-decoration-none" >{{ $trips[0]->category->name }}</a>
-    <p class="card-text">{{ ->body }}</p>
+    <p class="card-text">{{ $trips[0]->body }}</p>
 
     <a href="/trips/{{ $trips[0]->slug }}" class="text-decoration-none btn btn-primary">続きを読む</a>
 

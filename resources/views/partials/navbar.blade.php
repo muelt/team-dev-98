@@ -1,9 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+</html><nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+</head>
+<body>
   <div class="container">
     <!-- ユーザー名表示 -->
-    
-    <a class="navbar-brand"><h1>こんにちは、<?php $user = Auth::user(); ?>{{ $user -> name }}</h1></a>
-
+    <link href="{{secure_asset('public\css\navbar.css')}}" rel="stylesheet">
+    <a class="navbar-brand"><h1><span>こんにちは、</span><?php $user = Auth::user(); echo $user ? e($user->name) : 'ゲスト '; ?><span>さん</span></h1></a>
+</body>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,6 +21,7 @@
           <a class="nav-link {{ Request::is('trips/index') ? 'active' : ''}}" href="/trips/">Trips</a>
           </li>
       </ul>
+
 
           <ul class="navbar-nav ms-auto">
         @auth
