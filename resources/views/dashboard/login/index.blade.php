@@ -22,13 +22,13 @@
               @endif
 
         <main class="form-signin m-auto">
-            <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
+            <h1 class="h3 mb-3 fw-normal text-center">ログインしてください</h1>
             <form action="/login" method="post">
               @csrf
               <!-- email -->
               <div class="form-floating">
                 <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required value="{{ old('email') }}">
-                <label for="floatingInput">Email address</label>
+                <label for="floatingInput">メールアドレス</label>
                   @error('email')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -38,13 +38,14 @@
               <!-- password -->
               <div class="form-floating">
                 <input type="password" name="password" class="form-control" id="password" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                <label for="floatingPassword">パスワード</label>
               </div>
 
-              <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">ログイン</button>
             </form>
             <small class="d-block text-center mt-3">
-                Not Registered? <a href="/register">Register Now!</a>
+                会員登録していない方は<a href="/register">こちらから登録</a>
+                
             </small>
         </main>    
     </div>

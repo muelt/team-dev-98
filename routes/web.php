@@ -23,22 +23,13 @@ use App\Http\Controllers\DashboardTripController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('home',[
         'title' => 'Home',
         'active' => 'home'
     ]);
-});
-Route::get('/trips', function () {
-    return view('trips',[
-        'title' => 'All Trips',
-        'active' => 'trips',
-    ]);
-});
-
+});*/
+Route::get('/', [TripController::class, 'index']);
 
 ///////////////////////  TRIP CONTROLLER  /////////////////////////////////
 
@@ -51,7 +42,7 @@ Route::get('/categories', function(){
     return view('categories', [
         'title' => 'Trip Categories',
         'active' => 'categories',
-        'categor' => Category::all()
+        'category' => Category::all()
     ]);
 });
 
